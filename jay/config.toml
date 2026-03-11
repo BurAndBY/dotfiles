@@ -1,0 +1,164 @@
+keymap = """
+xkb_keymap {
+    xkb_keycodes { include "evdev+aliases(qwerty)" };
+    xkb_types    { include "complete" };
+    xkb_compat   { include "complete" };
+    xkb_symbols  { include "pc+us+ru+by+inet(evdev)" };
+};
+"""
+
+repeat-rate = { rate = 40, delay = 200 }
+workspace-display-order = "sorted"
+middle-click-paste = false
+focus-follows-mouse = false
+window-management-key = "Super_L"
+
+on-graphics-initialized = [
+    { type = "exec", exec = "mako" },
+    { type = "exec", exec = "wl-tray-bridge" },
+    { type = "exec", exec = { shell = "mpvpaper-rs ALL /home/bur/Videos/milk.mp4", privileged = true } },
+]
+
+[theme]
+bar-bg-color = "#161217"
+bar-status-text-color = "#e9e0e8"
+border-color = "#161217"
+captured-focused-title-bg-color = "#e0b8f6"
+captured-unfocused-title-bg-color = "#161217"
+focused-inactive-title-bg-color = "#161217"
+focused-inactive-title-text-color = "#e9e0e8"
+focused-title-bg-color = "#e0b8f6"
+focused-title-text-color = "#422356"
+separator-color = "#161217"
+unfocused-title-bg-color = "#161217"
+unfocused-title-text-color = "#e9e0e8"
+
+border-width = 2
+font = "cozette 11"
+
+
+
+[status]
+format = "i3bar"
+exec = "i3blocks"
+i3bar-separator = "|"
+
+[shortcuts]
+
+mod4-w = { type = "exec", exec = { prog = "firefox"}}
+
+mod4-Return = { type = "exec", exec = { prog = "foot", privileged = true } }
+mod4-shift-Return = { type = "exec", exec = "foot" }
+mod4-q = "close"
+mod4-shift-BackSpace = "quit"
+mod4-d = { type = "exec", exec = { shell = "wofi --show drun", privileged = false} }
+mod4-shift-r = [
+  "reload-config-toml",
+  { type = "exec", exec = ["pkill", "-USR1", "i3blocks"] }
+]
+
+mod4-h = "focus-left"
+mod4-j = "focus-down"
+mod4-k = "focus-up"
+mod4-l = "focus-right"
+
+mod4-shift-h = "move-left"
+mod4-shift-j = "move-down"
+mod4-shift-k = "move-up"
+mod4-shift-l = "move-right"
+
+mod4-1 = { type = "show-workspace", name = "1", output.name = "right" }
+mod4-2 = { type = "show-workspace", name = "2", output.name = "left" }
+mod4-3 = { type = "show-workspace", name = "3", output.name = "right" }
+mod4-4 = { type = "show-workspace", name = "4", output.name = "left" }
+mod4-5 = { type = "show-workspace", name = "5", output.name = "right" }
+mod4-6 = { type = "show-workspace", name = "6", output.name = "left" }
+mod4-7 = { type = "show-workspace", name = "7", output.name = "right" }
+mod4-8 = { type = "show-workspace", name = "8", output.name = "left" }
+mod4-9 = { type = "show-workspace", name = "9", output.name = "right" }
+mod4-0 = { type = "show-workspace", name = "10", output.name = "left" }
+
+mod4-shift-1 = { type = "move-to-workspace", name = "1" }
+mod4-shift-2 = { type = "move-to-workspace", name = "2" }
+mod4-shift-3 = { type = "move-to-workspace", name = "3" }
+mod4-shift-4 = { type = "move-to-workspace", name = "4" }
+mod4-shift-5 = { type = "move-to-workspace", name = "5" }
+mod4-shift-6 = { type = "move-to-workspace", name = "6" }
+mod4-shift-7 = { type = "move-to-workspace", name = "7" }
+mod4-shift-8 = { type = "move-to-workspace", name = "8" }
+mod4-shift-9 = { type = "move-to-workspace", name = "9" }
+mod4-shift-0 = { type = "move-to-workspace", name = "10" }
+
+mod4-b = "split-horizontal"
+mod4-v = "split-vertical"
+
+mod4-e = "toggle-split"
+mod4-f = "toggle-fullscreen"
+
+mod4-shift-space = "toggle-floating"
+mod4-a = "focus-parent"
+
+mod4-s = { type = "exec", exec = { shell = "wayfreeze --after-freeze-cmd 'grim -g \"$(slurp)\" - | wl-copy ; killall wayfreeze'", privileged = true } }
+mod4-shift-s = { type = "exec", exec = { shell = "grim -o eDP-1 - | wl-copy", privileged = true } }
+mod4-c = {
+  type = "exec",
+  exec = {
+    shell = "wayfreeze --after-freeze-cmd 'grim -g \"$(slurp -p)\" -t ppm - | convert - -format \"%[pixel:p{0,0}]\" txt:- | sed \"s/.* //\" | wl-copy; killall wayfreeze'",
+    privileged = true
+  }
+}
+
+
+
+mod4-m = { type = "exec", exec = ["mpc", "toggle"] }
+mod4-comma = { type = "exec", exec = ["mpc", "prev"] }
+mod4-period = { type = "exec", exec = ["mpc", "next"] }
+
+
+ctrl-alt-F1 = { type = "switch-to-vt", num = 1 }
+ctrl-alt-F2 = { type = "switch-to-vt", num = 2 }
+ctrl-alt-F3 = { type = "switch-to-vt", num = 3 }
+ctrl-alt-F4 = { type = "switch-to-vt", num = 4 }
+ctrl-alt-F5 = { type = "switch-to-vt", num = 5 }
+ctrl-alt-F6 = { type = "switch-to-vt", num = 6 }
+ctrl-alt-F7 = { type = "switch-to-vt", num = 7 }
+ctrl-alt-F8 = { type = "switch-to-vt", num = 8 }
+ctrl-alt-F9 = { type = "switch-to-vt", num = 9 }
+ctrl-alt-F10 = { type = "switch-to-vt", num = 10 }
+ctrl-alt-F11 = { type = "switch-to-vt", num = 11 }
+ctrl-alt-F12 = { type = "switch-to-vt", num = 12 }
+
+
+
+# Audio
+XF86AudioRaiseVolume = { type = "exec", exec = ["wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "0.05+", "-l", "1.0"] }
+XF86AudioLowerVolume = { type = "exec", exec = ["wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "0.05-"] }
+XF86AudioMute = { type = "exec", exec = ["wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle"] }
+
+XF86AudioPlay = { type = "exec", exec = ["playerctl", "play-pause"] }
+XF86AudioStop = { type = "exec", exec = ["playerctl", "stop"] }
+XF86AudioPrev = { type = "exec", exec = ["playerctl", "previous"] }
+XF86AudioNext = { type = "exec", exec = ["playerctl", "next"] }
+
+[[inputs]]
+match.is-pointer = true
+accel-profile = "Flat"
+accel-speed = 2
+
+[[outputs]]
+name = "left"
+match.serial-number = "5RPGQ43"
+x = 0
+y = 0
+
+[[outputs]]
+name = "right"
+match.serial-number = "3CQ2221MTF"
+transform = "rotate-90"
+x = 2560
+y = 0
+
+[[windows]]
+name = "discord"
+match.app-id = "vesktop"
+action = { type = "move-to-workspace", name = "4" }
