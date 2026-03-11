@@ -67,16 +67,16 @@ mod4-shift-j = "move-down"
 mod4-shift-k = "move-up"
 mod4-shift-l = "move-right"
 
-mod4-1 = { type = "show-workspace", name = "1", output.name = "right" }
+mod4-1 = { type = "show-workspace", name = "1", output.name = "left" }
 mod4-2 = { type = "show-workspace", name = "2", output.name = "left" }
-mod4-3 = { type = "show-workspace", name = "3", output.name = "right" }
+mod4-3 = { type = "show-workspace", name = "3", output.name = "left" }
 mod4-4 = { type = "show-workspace", name = "4", output.name = "left" }
-mod4-5 = { type = "show-workspace", name = "5", output.name = "right" }
+mod4-5 = { type = "show-workspace", name = "5", output.name = "left" }
 mod4-6 = { type = "show-workspace", name = "6", output.name = "left" }
 mod4-7 = { type = "show-workspace", name = "7", output.name = "right" }
-mod4-8 = { type = "show-workspace", name = "8", output.name = "left" }
+mod4-8 = { type = "show-workspace", name = "8", output.name = "right" }
 mod4-9 = { type = "show-workspace", name = "9", output.name = "right" }
-mod4-0 = { type = "show-workspace", name = "10", output.name = "left" }
+mod4-0 = { type = "show-workspace", name = "10", output.name = "right" }
 
 mod4-shift-1 = { type = "move-to-workspace", name = "1" }
 mod4-shift-2 = { type = "move-to-workspace", name = "2" }
@@ -161,4 +161,4 @@ y = 0
 [[windows]]
 name = "discord"
 match.app-id = "vesktop"
-action = { type = "move-to-workspace", name = "4" }
+action = { type = "move-to-workspace", name = "0" }
